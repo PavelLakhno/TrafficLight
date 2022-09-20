@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,61 +13,59 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrafficLight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-AZ-cAs">
-                                <rect key="frame" x="132.66666666666666" y="688" width="110" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UBd-8Y-7qQ">
+                                <rect key="frame" x="142" y="40" width="130" height="450"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIs-aG-HUc">
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osR-jP-xfo">
+                                        <rect key="frame" x="0.0" y="160" width="130" height="130"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSz-q4-w1s">
+                                        <rect key="frame" x="0.0" y="320" width="130" height="130"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Wxj-dV-D8p"/>
+                                    <constraint firstAttribute="width" constant="130" id="B0V-5y-zl2"/>
+                                    <constraint firstAttribute="height" constant="450" id="Rnf-eY-cZZ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-AZ-cAs">
+                                <rect key="frame" x="107" y="646" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ihi-xo-kil"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="oa9-33-sWl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="START">
+                                            <attributes>
+                                                <font key="NSFont" size="29" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="changeLightButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUR-q2-fUs"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W4X-by-YqI">
-                                <rect key="frame" x="122.66666666666669" y="84" width="130" height="410"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIs-aG-HUc">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="qfd-YF-eMc"/>
-                                            <constraint firstAttribute="height" constant="130" id="tYp-uJ-cWb"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osR-jP-xfo">
-                                        <rect key="frame" x="0.0" y="140" width="130" height="130"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="130" id="Dfy-Nv-IaE"/>
-                                            <constraint firstAttribute="width" constant="130" id="cOd-AL-uzp"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSz-q4-w1s">
-                                        <rect key="frame" x="0.0" y="280" width="130" height="130"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="Z1D-CD-AER"/>
-                                            <constraint firstAttribute="height" constant="130" id="sdq-nW-Bcr"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="W4X-by-YqI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="0Pg-i3-kFD"/>
-                            <constraint firstItem="W4X-by-YqI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NKb-os-9BP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IJ1-AZ-cAs" secondAttribute="bottom" constant="40" id="Xme-kQ-C9B"/>
-                            <constraint firstItem="IJ1-AZ-cAs" firstAttribute="top" relation="lessThanOrEqual" secondItem="W4X-by-YqI" secondAttribute="bottom" constant="196" id="eJh-cO-x0c"/>
-                            <constraint firstItem="IJ1-AZ-cAs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sRX-Sb-3vJ"/>
+                            <constraint firstItem="UBd-8Y-7qQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JhU-NV-aMA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IJ1-AZ-cAs" secondAttribute="bottom" constant="50" id="Kc4-G5-EUX"/>
+                            <constraint firstItem="UBd-8Y-7qQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Yw2-bu-KyH"/>
+                            <constraint firstItem="IJ1-AZ-cAs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sUB-o3-CdI"/>
                         </constraints>
                     </view>
                     <connections>
@@ -79,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69.599999999999994" y="62.807881773399018"/>
+            <point key="canvasLocation" x="-71.014492753623188" y="62.771739130434788"/>
         </scene>
     </scenes>
     <resources>

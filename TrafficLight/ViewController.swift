@@ -7,6 +7,10 @@
 
 import UIKit
 
+private enum LightControl {
+    case red, yellow, green
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var redLightView: UIView!
     @IBOutlet weak var yellowLightView: UIView!
@@ -14,44 +18,50 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var lightButton: UIButton!
     
-    let alphaView: CGFloat = 0.1
+    private var currentControl = LightControl.red
+    private let lightOff: CGFloat = 0.1
+    private let lightOn: CGFloat = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupSettingView(redLightView)
         setupSettingView(yellowLightView)
         setupSettingView(greenLightView)
         
-        lightButton.configuration = setupButton(with: "START")
+        lightButton.setTitle("START", for: .normal)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+//        setupSettingView(redLightView)
+//        setupSettingView(yellowLightView)
+//        setupSettingView(greenLightView)
+    }
     @IBAction func changeLightButton() {
-        lightButton.configuration = setupButton(with: "NEXT")
         
-        if redLightView.alpha == yellowLightView.alpha {
-            redLightView.alpha = 1
-            greenLightView.alpha = alphaView
-        } else if yellowLightView.alpha == greenLightView.alpha && redLightView.alpha == 1 {
-            yellowLightView.alpha = 1
-            redLightView.alpha = alphaView
-        } else {
-            redLightView.alpha = alphaView
-            yellowLightView.alpha = alphaView
-            greenLightView.alpha = 1
+        if lightButton.currentTitle == "START" {
+            lightButton.setTitle("NEXT", for: .normal)
+        }
+        
+        switch currentControl {
+        case .red:
+            greenLightView.alpha = lightOff
+            redLightView.alpha = lightOn
+            currentControl = .yellow
+        case .yellow:
+            redLightView.alpha = lightOff
+            yellowLightView.alpha = lightOn
+            currentControl = .green
+        case .green:
+            yellowLightView.alpha = lightOff
+            greenLightView.alpha = lightOn
+            currentControl = .red
+            
         }
     }
-    
     private func setupSettingView (_ view: UIView) {
         view.layer.cornerRadius = view.frame.width / 2
-        view.alpha = alphaView
-    }
-    
-    private func setupButton (with title: String) -> UIButton.Configuration {
-        var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.title = title
-        buttonConfiguration.cornerStyle = .large
-        return buttonConfiguration
+        view.alpha = lightOff
     }
     
 }
